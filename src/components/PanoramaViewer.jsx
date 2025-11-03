@@ -2,7 +2,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
-import projectData from "../APIdata.json";
+// import projectData from "../APIdata.json";
+import buildingData from "../buildingData.json";
 
 export default function PanoramaViewer({ panoramas }) {
   const containerRef = useRef(null);
@@ -92,7 +93,6 @@ const buildHotspots = async (sceneData, unitsData = []) => {
   const scene = sceneRef.current;
   const clickable = clickableRef.current;
   const svgLoader = new SVGLoader();
-
   // Clear old meshes
   clickable.forEach((obj) => scene.remove(obj));
   clickable.length = 0;
@@ -160,13 +160,13 @@ const buildHotspots = async (sceneData, unitsData = []) => {
     // --- 🏠 BUILDING HOTSPOTS ---
     const buildingPositions = [];
     sceneData.buildings.forEach((b) => {
-      const unit = unitsData.find((u) => u.building_slug === b.svg);
+      const unit = unitsData.find((u) => u.slug === b.svg);
       if (!unit) return;
 
       let fillColor = "#cccccc";
-      if ((unit.status === 1 || unit.status === 2) && unit.building_type_slug === "type_b")
+      if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_b")
         fillColor = "#FFEB3B";
-      else if ((unit.status === 1 || unit.status === 2) && unit.building_type_slug === "type_a")
+      else if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_a")
         fillColor = "#2196F3";
       else if (unit.status === 3)
         fillColor = "#F44336";
@@ -468,7 +468,7 @@ const switchPanorama = async (nextScene) => {
     rendererRef.current = renderer;
     controlsRef.current = controls;
 
-    buildHotspots(currentScene,projectData[0].units);
+    buildHotspots(currentScene,buildingData);
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
     let hoveredObject = null;
@@ -544,7 +544,7 @@ const onWheel = (event) => {
       );
     if (next) {
   setHistory((h) => [...h, JSON.parse(JSON.stringify(currentScene))]);
-  switchPanorama(next, projectData[0].units);
+  switchPanorama(next, buildingData);
 }
 
     };
@@ -583,8 +583,8 @@ const goBack = async () => {
   const prev = history[history.length - 1];
   setHistory((h) => h.slice(0, -1));
 
-  await switchPanorama(prev, projectData[0].units);
-  buildHotspots(prev, projectData[0].units);
+  await switchPanorama(prev, buildingData);
+  buildHotspots(prev, buildingData);
 
 };
 
