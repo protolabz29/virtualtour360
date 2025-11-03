@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 // import projectData from "../APIdata.json";
-import buildingData from "../buildingData.json";
+// import buildingData from "../buildingData.json";
 
 export default function PanoramaViewer({ panoramas }) {
   const containerRef = useRef(null);
@@ -25,10 +25,29 @@ export default function PanoramaViewer({ panoramas }) {
   const panoMesh2Ref = useRef(null);
   const isTransitioningRef = useRef(false);
   const [usingMesh1, setUsingMesh1] = useState(true);
-
+  const [buildingData, setBuildingData] = useState([]);
   const autorotateSpeed = 0.3;
   const autorotateTimeoutRef = useRef(null);
-
+  
+ useEffect(() => {
+    let mounted = true;
+    fetch("/buildingData.json")
+      .then((r) => r.json())
+      .then((data) => {
+        if (!mounted) return;
+        // If someone stored it under { default: [...] } handle that:
+        if (Array.isArray(data)) setBuildingData(data);
+        else if (Array.isArray(data?.default)) setBuildingData(data.default);
+        else setBuildingData([]);
+      })
+      .catch((err) => {
+        console.error("Failed to load buildingData.json:", err);
+        if (mounted) setBuildingData([]);
+      });
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     const loader = new THREE.TextureLoader();
