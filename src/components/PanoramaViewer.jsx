@@ -285,7 +285,6 @@ const buildHotspots = async (sceneData, unitsData = []) => {
 };
 
 const switchPanorama = async (nextScene, currentSlug, isBack = false, isUnitScene = false) => {
-
   if (!nextScene || isTransitioningRef.current) return;
   isTransitioningRef.current = true;
 
@@ -661,7 +660,6 @@ const onClick = async(event) => {
   if (!intersects.length) return;
 
   const clicked = intersects[0].object;
-  console.log("Clicked hotspot:", clicked.userData);
   const { type, nextPanorama, buildingSlug, isBack } = clicked.userData || {};
 if (type === "backHotspot" && isBack && nextPanorama) {
   const previousScene =
@@ -693,8 +691,21 @@ if (type === "unitHotspot" && nextPanorama) {
   }
   return;
 }
+// inside your click handler
+if (type === "amenity") {
+  const { nextPanorama } = clicked.userData;
+  const targetScene = panoramas.find(
+    (s) => s.id === nextPanorama 
+  );
 
+  if (targetScene) {
+      setHistory((h) => [...h, JSON.parse(JSON.stringify(currentScene))]);
+    switchPanorama(targetScene, null, false, false);
 
+  } else {
+    console.warn("No matching panorama found for:", nextPanorama);
+  }
+}
 
   console.warn("⚠️ Unrecognized hotspot clicked:", clicked.userData);
 };
