@@ -2,7 +2,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
-import { GUI } from "lil-gui";
 
 export default function PanoramaViewer({ panoramas }) {
   const containerRef = useRef(null);
