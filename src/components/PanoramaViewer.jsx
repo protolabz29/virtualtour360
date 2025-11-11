@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
-import GUI from "lil-gui";git 
+import GUI from "lil-gui";
 
 export default function PanoramaViewer({ panoramas }) {
   const containerRef = useRef(null);
@@ -130,19 +130,36 @@ const buildHotspots = useCallback(async (sceneData, unitsData = []) => {
     });
 
     // Base transform controls (same as you had)
-    const controls = {
-      latitude: 108.1,
-      longitude: 65.3,
-      radius: 637,
-      scale: 0.49,
-      offsetX: -148.3,
-      offsetY: -647.4,
-      offsetZ: 377.6,
-      yaw: -47.6,
-      pitch: -21.4,
-      roll: -6.2,
-      opacity: 0.37,
-    };
+  // ✅ Default base transform for normal & mirrored modes
+const controls =
+  viewMode === "mirrored"
+    ? {
+        latitude: 129.7,
+        longitude: 22.1,
+        radius: 462,
+        scale: 0.46,
+        offsetX: 87,
+        offsetY: -394.5,
+        offsetZ: 157.5,
+        yaw: -178.7,
+        pitch: -156.4,
+        roll: -48.1,
+        opacity: 0.37,
+      }
+    : {
+        latitude: 108.1,
+        longitude: 65.3,
+        radius: 637,
+        scale: 0.49,
+        offsetX: -148.3,
+        offsetY: -647.4,
+        offsetZ: 377.6,
+        yaw: -47.6,
+        pitch: -21.4,
+        roll: -6.2,
+        opacity: 0.37,
+      };
+
 
    // 🔁 Remove previous SVG group if exists
     const oldGroup = scene.getObjectByName("hotspot-group");
