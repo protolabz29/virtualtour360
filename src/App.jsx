@@ -5,6 +5,7 @@ const panoramas = [
   {
     id: 'scene1',
     image: '/assets/7-7.0001.webp',
+    imageMirrored: '/assets/7-7.0001_mirrored.webp',
   buildings: [
   
     {
