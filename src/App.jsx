@@ -382,28 +382,28 @@ const panoramas = [
 ],
 amenities: [
       {
-        id: "amenity-1",
+        id: "beach",
        name: "Piza Hut",
         location: "-12.2, 24.1",
        category: "Restaurants"
       },
       {
-        id: "amenity-2",
+        id: "resort",
        name: "Theta Mediterranean restaurant",
         location: "-15.7, -0.199999999999989",
        category: "beach"
       },
       {
-        id: "amenity-3",
+        id: "head",
        name: "Nero caffe Macenzie beach",
         location: "-13.9, -142.2",
        category: "shopping"
       },
       {
-        id: "amenity-4",
+        id: "resort",
        name: "Jackson Gastro Cafe Bar",
         location: "-31.3, -173.4",
-       category: "transport"
+        category: "transport"
       },
 
     ]
@@ -427,6 +427,21 @@ amenities: [
     {
     id: 'scene5',
     image: '/assets/7-5.0001.webp',
+    buildings: [],
+  },
+    {
+    id: 'beach',
+    image: '/assets/beach.jpg',
+    buildings: [],
+  },
+    {
+    id: 'resort',
+    image: '/assets/resort.jpg',
+    buildings: [],
+  },
+    {
+    id: 'head',
+    image: '/assets/head.jpg',
     buildings: [],
   },
 ];

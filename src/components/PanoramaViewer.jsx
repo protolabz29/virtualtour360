@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
-// import GUI from "lil-gui";
+import GUI from "lil-gui";
 
 export default function PanoramaViewer({ panoramas }) {
   const containerRef = useRef(null);
@@ -295,49 +295,49 @@ const controls =
         type: "amenity",
         name: amenity.name,
         category: amenity.category,
-        nextPanorama: "scene3",
+        nextPanorama: amenity.id,
       };
       clickable.push(mesh);
       group.add(mesh);
     });
   }
 };
-//  if (window._mirroredGui) {
-//     window._mirroredGui.destroy();
-//     window._mirroredGui = null;
-//   }
+ if (window._mirroredGui) {
+    window._mirroredGui.destroy();
+    window._mirroredGui = null;
+  }
 
-//   if (viewMode === "mirrored") {
-//     const gui = new GUI({ width: 320 });
-//     window._mirroredGui = gui;
+  if (viewMode === "mirrored") {
+    const gui = new GUI({ width: 320 });
+    window._mirroredGui = gui;
 
-//     const folder = gui.addFolder("Mirrored SVG Alignment");
-//     folder.add(controls, "latitude", 0, 180, 0.1).onChange(rebuildMeshes);
-//     folder.add(controls, "longitude", 0, 360, 0.1).onChange(rebuildMeshes);
-//     folder.add(controls, "radius", 100, 1000, 1).onChange(rebuildMeshes);
-//     folder.add(controls, "scale", 0.1, 2, 0.01).onChange(rebuildMeshes);
+    const folder = gui.addFolder("Mirrored SVG Alignment");
+    folder.add(controls, "latitude", 0, 180, 0.1).onChange(rebuildMeshes);
+    folder.add(controls, "longitude", 0, 360, 0.1).onChange(rebuildMeshes);
+    folder.add(controls, "radius", 100, 1000, 1).onChange(rebuildMeshes);
+    folder.add(controls, "scale", 0.1, 2, 0.01).onChange(rebuildMeshes);
 
-//     const offsetFolder = folder.addFolder("Offset");
-//     offsetFolder
-//       .add(controls, "offsetX", -1000, 1000, 0.5)
-//       .onChange(rebuildMeshes);
-//     offsetFolder
-//       .add(controls, "offsetY", -1000, 1000, 0.5)
-//       .onChange(rebuildMeshes);
-//     offsetFolder
-//       .add(controls, "offsetZ", -1000, 1000, 0.5)
-//       .onChange(rebuildMeshes);
+    const offsetFolder = folder.addFolder("Offset");
+    offsetFolder
+      .add(controls, "offsetX", -1000, 1000, 0.5)
+      .onChange(rebuildMeshes);
+    offsetFolder
+      .add(controls, "offsetY", -1000, 1000, 0.5)
+      .onChange(rebuildMeshes);
+    offsetFolder
+      .add(controls, "offsetZ", -1000, 1000, 0.5)
+      .onChange(rebuildMeshes);
 
-//     const rotationFolder = folder.addFolder("Rotation");
-//     rotationFolder.add(controls, "yaw", -180, 180, 0.1).onChange(rebuildMeshes);
-//     rotationFolder
-//       .add(controls, "pitch", -180, 180, 0.1)
-//       .onChange(rebuildMeshes);
-//     rotationFolder.add(controls, "roll", -180, 180, 0.1).onChange(rebuildMeshes);
+    const rotationFolder = folder.addFolder("Rotation");
+    rotationFolder.add(controls, "yaw", -180, 180, 0.1).onChange(rebuildMeshes);
+    rotationFolder
+      .add(controls, "pitch", -180, 180, 0.1)
+      .onChange(rebuildMeshes);
+    rotationFolder.add(controls, "roll", -180, 180, 0.1).onChange(rebuildMeshes);
 
-//     folder.add(controls, "opacity", 0, 1, 0.01).onChange(rebuildMeshes);
-//     folder.open();
-//   }
+    folder.add(controls, "opacity", 0, 1, 0.01).onChange(rebuildMeshes);
+    folder.open();
+  }
 
     rebuildMeshes();
  }, [viewMode]);
