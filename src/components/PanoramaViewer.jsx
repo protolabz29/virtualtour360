@@ -211,7 +211,7 @@ const controls =
     else if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_a")
       fillColor = "#2196F3";
     else if (unit.status === 3) fillColor = "#F44336";
-
+if (viewMode === "mirrored" && fillColor === "#FFEB3B") return;
     const path = pathsById[b.svg];
     if (!path) return;
 
