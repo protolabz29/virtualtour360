@@ -201,55 +201,69 @@ const controls =
   const rotationQuat = new THREE.Quaternion().setFromEuler(euler);
 
   // --- BUILDING HOTSPOTS ---
-  sceneData.buildings.forEach((b) => {
-    const unit = unitsData.find((u) => u.slug === b.svg);
-    if (!unit) return;
+  // --- BUILDING HOTSPOTS ---
+sceneData.buildings.forEach((b) => {
+  const unit = unitsData.find((u) => u.slug === b.svg);
+  if (!unit) return;
 
-    let fillColor = "#cccccc";
-    if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_b")
-      fillColor = "#FFEB3B";
-    else if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_a")
-      fillColor = "#2196F3";
-    else if (unit.status === 3) fillColor = "#F44336";
-if (viewMode === "mirrored" && fillColor === "#FFEB3B") return;
-    const path = pathsById[b.svg];
-    if (!path) return;
+  // 🧭 Visibility control based on panoramas and view mode
+  const panoramas = unit.panoramas || [];
+  const showInImage = panoramas.includes("panorama-1");
+  const showInMirrored = panoramas.includes("panorama-2");
 
-    const shapes = SVGLoader.createShapes(path);
-    shapes.forEach((shape) => {
-      const geometry = new THREE.ShapeGeometry(shape);
-      const material = new THREE.MeshBasicMaterial({
-        color: new THREE.Color(fillColor),
-        transparent: true,
-        opacity: controls.opacity,
-        side: THREE.DoubleSide,
-        depthWrite: false,
-      });
+  if (
+    (viewMode === "image" && !showInImage) ||
+    (viewMode === "mirrored" && !showInMirrored)
+  ) {
+    return; // Skip this unit if not meant for current view mode
+  }
 
-      const mesh = new THREE.Mesh(geometry, material);
-      mesh.scale.set(controls.scale, -controls.scale, controls.scale);
-      mesh.position.copy(basePosition);
-      mesh.lookAt(0, 0, 0);
-      mesh.quaternion.multiply(rotationQuat);
+  let fillColor = "#cccccc";
+  if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_b")
+    fillColor = "#FFEB3B";
+  else if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_a")
+    fillColor = "#2196F3";
+  else if (unit.status === 3)
+    fillColor = "#F44336";
 
-      // 🪞 Flip horizontally if mirrored
-      if (viewMode === "mirrored") {
-        // Reverse X coordinates and quaternion
-        mesh.scale.x *= -1;   // Mirror horizontally
-        mesh.rotation.y += Math.PI; // Face correct way
-      }
+  const path = pathsById[b.svg];
+  if (!path) return;
 
-      mesh.renderOrder = 10;
-      mesh.userData = {
-        type: "building",
-        buildingSlug: b.svg,
-        nextPanorama: b.nextPanorama,
-      };
-
-      clickable.push(mesh);
-      group.add(mesh);
+  const shapes = SVGLoader.createShapes(path);
+  shapes.forEach((shape) => {
+    const geometry = new THREE.ShapeGeometry(shape);
+    const material = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(fillColor),
+      transparent: true,
+      opacity: controls.opacity,
+      side: THREE.DoubleSide,
+      depthWrite: false,
     });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.scale.set(controls.scale, -controls.scale, controls.scale);
+    mesh.position.copy(basePosition);
+    mesh.lookAt(0, 0, 0);
+    mesh.quaternion.multiply(rotationQuat);
+
+    // 🪞 Flip horizontally if mirrored
+    if (viewMode === "mirrored") {
+      mesh.scale.x *= -1;
+      mesh.rotation.y += Math.PI;
+    }
+
+    mesh.renderOrder = 10;
+    mesh.userData = {
+      type: "building",
+      buildingSlug: b.svg,
+      nextPanorama: b.nextPanorama,
+    };
+
+    clickable.push(mesh);
+    group.add(mesh);
   });
+});
+
 
   // --- AMENITIES (optional mirror if desired) ---
   if (sceneData.amenities?.length) {
