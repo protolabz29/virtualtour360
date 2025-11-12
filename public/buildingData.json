@@ -14,16 +14,8 @@
     "updated_at": "2025-08-07T16:27:43.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 2,
@@ -51,16 +43,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 2,
@@ -88,16 +71,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 2,
@@ -125,16 +100,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 2,
@@ -162,16 +128,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 2,
@@ -199,16 +156,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -236,16 +185,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -273,16 +213,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -310,16 +241,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -347,16 +270,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -384,16 +298,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -421,16 +326,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -458,16 +355,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -495,16 +383,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -532,16 +411,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -569,16 +440,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -606,16 +468,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -643,16 +496,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -680,16 +525,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -717,16 +553,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -754,16 +581,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -791,16 +610,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -828,16 +638,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -865,16 +666,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -902,16 +695,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -939,16 +723,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -976,16 +751,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1013,16 +780,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1050,16 +808,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1087,16 +836,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1124,16 +865,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene3",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": 5.80000000000001
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1161,16 +893,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1198,16 +921,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1235,16 +950,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1272,16 +978,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1309,16 +1006,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1346,16 +1035,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1383,16 +1063,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1420,16 +1091,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1457,16 +1120,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1494,16 +1148,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1531,16 +1176,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1568,16 +1205,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1605,16 +1233,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1642,16 +1261,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1679,16 +1290,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1716,16 +1318,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1753,16 +1346,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1790,16 +1375,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1827,16 +1403,7 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1"
     ],
     "building_type": {
       "id": 1,
@@ -1864,16 +1431,8 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-      {
-        "image": "scene2",
-        "latitude": -3.89999999999998,
-        "longitude": 96.1
-      },
-      {
-        "image": "scene4",
-        "latitude": -174.8,
-        "longitude": -0.0999999999999943
-      }
+      "panorama-1",
+      "panorama-2"
     ],
     "building_type": {
       "id": 1,
@@ -1901,837 +1460,636 @@
     "updated_at": "2025-08-07T16:24:29.000000Z",
     "floors": [],
     "panoramas": [
-       {"image": "scene2","latitude": -3.89999999999998,
-      "longitude": 96.1
-    },
-    {
-      "image": "scene4",
-      "latitude": -174.8,
-      "longitude": -0.0999999999999943
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
     }
-  ],
-  "building_type": {
-    "id": 1,
-    "name": "Type A",
-    "slug": "type_a",
-    "exterior": "",
+  },
+  {
+    "id": 53,
+    "name": "KA54",
+    "slug": "b_7B7544",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
     "project_id": 1,
+    "status": 3,
     "created_at": "2025-08-07T16:24:29.000000Z",
     "updated_at": "2025-08-07T16:24:29.000000Z",
-    "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-  }
-},
-{
-  "id": 53,
-  "name": "KA54",
-  "slug": "b_7B7544",
-  "type": "Villa",
-  "total_floor": 0,
-  "total_unit": 0,
-  "building_type_id": 1,
-  "zone_id": 1,
-  "project_id": 1,
-  "status": 3,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "floors": [],
-  "panoramas": [
-  {"image": "scene2","latitude": -3.89999999999998,
-    "longitude": 96.1
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 54,
-"name": "KA55",
-"slug": "b_601220",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 54,
+    "name": "KA55",
+    "slug": "b_601220",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1",
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 55,
-"name": "KA56",
-"slug": "b_958695",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 55,
+    "name": "KA56",
+    "slug": "b_958695",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 56,
-"name": "KA57",
-"slug": "b_54795F",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 56,
+    "name": "KA57",
+    "slug": "b_54795F",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 57,
-"name": "KA58",
-"slug": "b_745929",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 57,
+    "name": "KA58",
+    "slug": "b_745929",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1",
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 58,
-"name": "KA59",
-"slug": "b_835B3C",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 58,
+    "name": "KA59",
+    "slug": "b_835B3C",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 59,
-"name": "KA60",
-"slug": "b_717E78",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 59,
+    "name": "KA60",
+    "slug": "b_717E78",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 60,
-"name": "KA61",
-"slug": "b_658844",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 60,
+    "name": "KA61",
+    "slug": "b_658844",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1",
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 61,
-"name": "KA62",
-"slug": "b_3C732B",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 61,
+    "name": "KA62",
+    "slug": "b_3C732B",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 62,
-"name": "KA63",
-"slug": "b_267191",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 62,
+    "name": "KA63",
+    "slug": "b_267191",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 63,
-"name": "KA64",
-"slug": "b_8F538D",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:29.000000Z",
-"updated_at": "2025-08-07T16:24:29.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 63,
+    "name": "KA64",
+    "slug": "b_8F538D",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:29.000000Z",
+    "updated_at": "2025-08-07T16:24:29.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 64,
-"name": "KA65",
-"slug": "b_8C7293",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 64,
+    "name": "KA65",
+    "slug": "b_8C7293",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 65,
-"name": "KA66",
-"slug": "b_907437",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 65,
+    "name": "KA66",
+    "slug": "b_907437",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 66,
-"name": "KA67",
-"slug": "b_8C6D87",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 66,
+    "name": "KA67",
+    "slug": "b_8C6D87",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 67,
-"name": "KA68",
-"slug": "b_658695",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 67,
+    "name": "KA68",
+    "slug": "b_658695",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 68,
-"name": "KA69",
-"slug": "b_718613",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 2,
-"zone_id": 1,
-"project_id": 1,
-"status": 1,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 68,
+    "name": "KA69",
+    "slug": "b_718613",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 2,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 1,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 2,
+      "name": "Type B",
+      "slug": "type_b",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 2,
-  "name": "Type B",
-  "slug": "type_b",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 69,
-"name": "KA70",
-"slug": "b_887755",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 69,
+    "name": "KA70",
+    "slug": "b_887755",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 70,
-"name": "KA71",
-"slug": "b_4F2E4F",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 70,
+    "name": "KA71",
+    "slug": "b_4F2E4F",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 71,
-"name": "KA72",
-"slug": "b_7E4678",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 71,
+    "name": "KA72",
+    "slug": "b_7E4678",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 72,
-"name": "KA73",
-"slug": "b_707B6B",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-      "image": "scene2",
-      "latitude": -3.89999999999998,
-      "longitude": 96.1
-    },
-    {
-      "image": "scene4",
-      "latitude": -174.8,
-      "longitude": -0.0999999999999943
-    }       
-  
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 73,
-"name": "KA74",
-"slug": "b_602540",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 72,
+    "name": "KA73",
+    "slug": "b_707B6B",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
-  }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-},
-{
-"id": 74,
-"name": "KA75",
-"slug": "b_3F8491",
-"type": "Villa",
-"total_floor": 0,
-"total_unit": 0,
-"building_type_id": 1,
-"zone_id": 1,
-"project_id": 1,
-"status": 3,
-"created_at": "2025-08-07T16:24:30.000000Z",
-"updated_at": "2025-08-07T16:24:30.000000Z",
-"floors": [],
-"panoramas": [
-  {
-    "image": "scene2",
-    "latitude": -3.89999999999998,
-    "longitude": 96.1
+    "id": 73,
+    "name": "KA74",
+    "slug": "b_602540",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-2"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   },
   {
-    "image": "scene4",
-    "latitude": -174.8,
-    "longitude": -0.0999999999999943
+    "id": 74,
+    "name": "KA75",
+    "slug": "b_3F8491",
+    "type": "Villa",
+    "total_floor": 0,
+    "total_unit": 0,
+    "building_type_id": 1,
+    "zone_id": 1,
+    "project_id": 1,
+    "status": 3,
+    "created_at": "2025-08-07T16:24:30.000000Z",
+    "updated_at": "2025-08-07T16:24:30.000000Z",
+    "floors": [],
+    "panoramas": [
+      "panorama-1"
+    ],
+    "building_type": {
+      "id": 1,
+      "name": "Type A",
+      "slug": "type_a",
+      "exterior": "",
+      "project_id": 1,
+      "created_at": "2025-08-07T16:24:29.000000Z",
+      "updated_at": "2025-08-07T16:24:29.000000Z",
+      "image": "https://admin.cy.anys.wizio.co.uk/uploads"
+    }
   }
-],
-"building_type": {
-  "id": 1,
-  "name": "Type A",
-  "slug": "type_a",
-  "exterior": "",
-  "project_id": 1,
-  "created_at": "2025-08-07T16:24:29.000000Z",
-  "updated_at": "2025-08-07T16:24:29.000000Z",
-  "image": "https://admin.cy.anys.wizio.co.uk/uploads"
-}
-}
-]
+  ]

@@ -410,14 +410,36 @@ amenities: [
 
   },
   {
-    id: 'scene2',
+    id: 'panorama-1',
     image: '/assets/7-1.0001.webp',
-    buildings: [],
+    hotspots: [
+          {
+        "image": "panorama-2",
+        "latitude": -3.89999999999998,
+        "longitude": 96.1
+        },
+        {
+            "image": "scene4",
+            "latitude": -174.8,
+            "longitude": -0.0999999999999943
+        }
+    ],
   },
    {
-    id: 'scene3',
+    id: 'panorama-2',
     image: '/assets/7-4.0001.webp',
-    buildings: [],
+       hotspots: [
+          {
+        "image": "panorama-2",
+        "latitude": -3.89999999999998,
+        "longitude": 96.1
+        },
+        {
+        "image": "scene4",
+        "latitude": -174.8,
+        "longitude": -0.0999999999999943
+        }
+    ],
   },
     {
     id: 'scene4',

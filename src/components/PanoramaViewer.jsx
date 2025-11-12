@@ -302,42 +302,42 @@ const controls =
     });
   }
 };
- if (window._mirroredGui) {
-    window._mirroredGui.destroy();
-    window._mirroredGui = null;
-  }
+//  if (window._mirroredGui) {
+//     window._mirroredGui.destroy();
+//     window._mirroredGui = null;
+//   }
 
-  if (viewMode === "mirrored") {
-    const gui = new GUI({ width: 320 });
-    window._mirroredGui = gui;
+//   if (viewMode === "mirrored") {
+//     const gui = new GUI({ width: 320 });
+//     window._mirroredGui = gui;
 
-    const folder = gui.addFolder("Mirrored SVG Alignment");
-    folder.add(controls, "latitude", 0, 180, 0.1).onChange(rebuildMeshes);
-    folder.add(controls, "longitude", 0, 360, 0.1).onChange(rebuildMeshes);
-    folder.add(controls, "radius", 100, 1000, 1).onChange(rebuildMeshes);
-    folder.add(controls, "scale", 0.1, 2, 0.01).onChange(rebuildMeshes);
+//     const folder = gui.addFolder("Mirrored SVG Alignment");
+//     folder.add(controls, "latitude", 0, 180, 0.1).onChange(rebuildMeshes);
+//     folder.add(controls, "longitude", 0, 360, 0.1).onChange(rebuildMeshes);
+//     folder.add(controls, "radius", 100, 1000, 1).onChange(rebuildMeshes);
+//     folder.add(controls, "scale", 0.1, 2, 0.01).onChange(rebuildMeshes);
 
-    const offsetFolder = folder.addFolder("Offset");
-    offsetFolder
-      .add(controls, "offsetX", -1000, 1000, 0.5)
-      .onChange(rebuildMeshes);
-    offsetFolder
-      .add(controls, "offsetY", -1000, 1000, 0.5)
-      .onChange(rebuildMeshes);
-    offsetFolder
-      .add(controls, "offsetZ", -1000, 1000, 0.5)
-      .onChange(rebuildMeshes);
+//     const offsetFolder = folder.addFolder("Offset");
+//     offsetFolder
+//       .add(controls, "offsetX", -1000, 1000, 0.5)
+//       .onChange(rebuildMeshes);
+//     offsetFolder
+//       .add(controls, "offsetY", -1000, 1000, 0.5)
+//       .onChange(rebuildMeshes);
+//     offsetFolder
+//       .add(controls, "offsetZ", -1000, 1000, 0.5)
+//       .onChange(rebuildMeshes);
 
-    const rotationFolder = folder.addFolder("Rotation");
-    rotationFolder.add(controls, "yaw", -180, 180, 0.1).onChange(rebuildMeshes);
-    rotationFolder
-      .add(controls, "pitch", -180, 180, 0.1)
-      .onChange(rebuildMeshes);
-    rotationFolder.add(controls, "roll", -180, 180, 0.1).onChange(rebuildMeshes);
+//     const rotationFolder = folder.addFolder("Rotation");
+//     rotationFolder.add(controls, "yaw", -200, 200, 0.1).onChange(rebuildMeshes);
+//     rotationFolder
+//       .add(controls, "pitch", -180, 180, 0.1)
+//       .onChange(rebuildMeshes);
+//     rotationFolder.add(controls, "roll", -180, 180, 0.1).onChange(rebuildMeshes);
 
-    folder.add(controls, "opacity", 0, 1, 0.01).onChange(rebuildMeshes);
-    folder.open();
-  }
+//     folder.add(controls, "opacity", 0, 1, 0.01).onChange(rebuildMeshes);
+//     folder.open();
+//   }
 
     rebuildMeshes();
  }, [viewMode]);
@@ -396,50 +396,62 @@ const controls =
 
     // unit hotspots for unit panoramas (unchanged)
     if (!isUnitScene && currentUnit && currentUnit.panoramas?.length) {
-      currentUnit.panoramas.forEach((b) => {
-        loader.load(
-          "/assets/svg/oval.svg",
-          (svgTexture) => {
-            svgTexture.colorSpace = THREE.SRGBColorSpace;
-            const mat = new THREE.MeshBasicMaterial({
-              map: svgTexture,
-              transparent: true,
-              opacity: 1,
-              side: THREE.DoubleSide,
-              depthWrite: false,
-            });
+  currentUnit.panoramas.forEach((panoramaId) => {
+    // find matching panorama data from master panoramas list
+    const panoramaData = panoramas.find((p) => p.id === panoramaId);
+    if (!panoramaData || !panoramaData.hotspots) return;
 
-            const plane = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), mat);
-            const phi = THREE.MathUtils.degToRad(90 - b.latitude);
-            const theta = THREE.MathUtils.degToRad(b.longitude);
-            plane.position.set(
-              65 * Math.sin(phi) * Math.cos(theta),
-              65 * Math.cos(phi),
-              65 * Math.sin(phi) * Math.sin(theta)
-            );
+    panoramaData.hotspots.forEach((b) => {
+      loader.load(
+        "/assets/svg/oval.svg",
+        (svgTexture) => {
+          svgTexture.colorSpace = THREE.SRGBColorSpace;
+          const mat = new THREE.MeshBasicMaterial({
+            map: svgTexture,
+            transparent: true,
+            opacity: 1,
+            side: THREE.DoubleSide,
+            depthWrite: false,
+          });
 
-            plane.lookAt(0, 0, 0);
-            plane.rotation.z = THREE.MathUtils.degToRad(118.6);
+          const plane = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), mat);
+          const phi = THREE.MathUtils.degToRad(90 - b.latitude);
+          const theta = THREE.MathUtils.degToRad(b.longitude);
+          plane.position.set(
+            65 * Math.sin(phi) * Math.cos(theta),
+            65 * Math.cos(phi),
+            65 * Math.sin(phi) * Math.sin(theta)
+          );
 
-            const aspect = plane.material.map.image?.width / plane.material.map.image?.height || 1;
-            plane.geometry.dispose();
-            plane.geometry = new THREE.PlaneGeometry(40 * aspect * 0.35, 40 * 0.35);
+          plane.lookAt(0, 0, 0);
+          plane.rotation.z = THREE.MathUtils.degToRad(118.6);
 
-            plane.userData = {
-              type: "unitHotspot",
-              nextPanorama: b.image,
-              buildingSlug: currentSlug,
-            };
+          const aspect =
+            plane.material.map.image?.width /
+              plane.material.map.image?.height || 1;
+          plane.geometry.dispose();
+          plane.geometry = new THREE.PlaneGeometry(
+            40 * aspect * 0.35,
+            40 * 0.35
+          );
 
-            plane.renderOrder = 1;
-            scene.add(plane);
-            clickable.push(plane);
-          },
-          undefined,
-          (err) => console.error("Error loading SVG:", err)
-        );
-      });
-    }
+          plane.userData = {
+            type: "unitHotspot",
+            nextPanorama: b.image,
+            buildingSlug: currentSlug,
+          };
+
+          plane.renderOrder = 1;
+          scene.add(plane);
+          clickable.push(plane);
+        },
+        undefined,
+        (err) => console.error("Error loading SVG:", err)
+      );
+    });
+  });
+}
+
 
     // back hotspot when appropriate
     if (previousSceneRef.current && isUnitScene && isBack === false) {
