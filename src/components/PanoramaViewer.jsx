@@ -194,7 +194,7 @@ export default function PanoramaViewer({ panoramas }) {
           const unit = unitsData.find((u) => u.slug === b.svg);
 
           if (!unit) return;
-          // if (!unit.panoramas || !unit.panoramas.includes(viewMode)) return;
+          if (!unit.panoramas || !unit.panoramas.includes(viewMode)) return;
           let fillColor = "#cccccc";
           if (
             (unit.status === 1 || unit.status === 2) &&
