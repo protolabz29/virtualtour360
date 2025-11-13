@@ -10,7 +10,7 @@ export default function PanoramaViewer({ panoramas }) {
   const [currentScene, setCurrentScene] = useState(panoramas[0]);
   const [history, setHistory] = useState([]);
   const [isReady, setIsReady] = useState(false);
-  const [viewMode, setViewMode] = useState("image");
+  const [viewMode, setViewMode] = useState(panoramas[0].images[0].key);
 
   const sceneRef = useRef(null);
   const cameraRef = useRef(null);
@@ -28,6 +28,19 @@ export default function PanoramaViewer({ panoramas }) {
   const [buildingData, setBuildingData] = useState([]);
   const autorotateSpeed = 0.3;
   const autorotateTimeoutRef = useRef(null);
+
+  const getImageUrl = (scene, viewMode) => {
+    if (!scene) return null;
+
+    if (Array.isArray(scene.images)) {
+      const matched = scene.images.find((img) => img.key === viewMode);
+      if (matched) return matched.image;
+    }
+
+    return scene.image || null;
+  };
+
+  
 
   useEffect(() => {
     let mounted = true;
@@ -50,27 +63,35 @@ export default function PanoramaViewer({ panoramas }) {
 
   useEffect(() => {
     const loader = new THREE.TextureLoader();
-    const loadPromises = panoramas.map(
-      (p) =>
+
+    // Flatten out all images (including nested)
+    const allImages = panoramas.flatMap((p) =>
+      Array.isArray(p.images) ? p.images.map((img) => img.image) : [p.image]
+    );
+
+    const loadPromises = allImages.map(
+      (imgPath) =>
         new Promise((resolve) => {
-          if (textureCache.current[p.image]) return resolve();
+          if (textureCache.current[imgPath]) return resolve();
+
           loader.load(
-            p.image,
+            imgPath,
             (tex) => {
               tex.colorSpace = THREE.SRGBColorSpace;
               tex.minFilter = THREE.LinearMipmapLinearFilter;
               tex.generateMipmaps = true;
-              textureCache.current[p.image] = tex;
+              textureCache.current[imgPath] = tex;
               resolve();
             },
             undefined,
             () => {
-              console.warn("Failed to preload:", p.image);
+              console.warn("Failed to preload:", imgPath);
               resolve();
             }
           );
         })
     );
+
     Promise.all(loadPromises).then(() => setIsReady(true));
   }, [panoramas]);
 
@@ -97,267 +118,228 @@ export default function PanoramaViewer({ panoramas }) {
       }
     });
 
-  // buildHotspots with optional mirroring when viewMode === 'mirrored'
-const buildHotspots = useCallback(async (sceneData, unitsData = []) => {
-    const scene = sceneRef.current;
-    const clickable = clickableRef.current;
-    const svgLoader = new SVGLoader();
+  const buildHotspots = useCallback(
+    async (sceneData, unitsData = []) => {
+      const scene = sceneRef.current;
+      const clickable = clickableRef.current;
+      const svgLoader = new SVGLoader();
 
-    // Clear old meshes
-    clickable.forEach((obj) => scene.remove(obj));
-    clickable.length = 0;
+      // Clear old meshes
+      clickable.forEach((obj) => scene.remove(obj));
+      clickable.length = 0;
 
-    const svgPath = viewMode === "mirrored"
-  ? "/assets/svg/units_mir.svg"
-  : "/assets/svg/units.svg";
+      const svgPath = panoramas[0].images?.find(
+        (img) => img.key === viewMode
+      )?.svg;
 
-    // Load SVG (units)
-    const svgData = await new Promise((resolve, reject) => {
-      console.log("Loading SVG for viewMode:", svgPath);
-      svgLoader.load(
-        svgPath,
-        (data) => resolve(data),
-        undefined,
-        (err) => reject(err)
-      );
-    });
-
-    // Map paths by id
-    const pathsById = {};
-    svgData.paths.forEach((path) => {
-      const id = path.userData?.node?.id;
-      if (id) pathsById[id] = path;
-    });
-
-    // Base transform controls (same as you had)
-  // ✅ Default base transform for normal & mirrored modes
-const controls =
-  viewMode === "mirrored"
-    ? {
-        latitude: 129.7,
-        longitude: 22.1,
-        radius: 462,
-        scale: 0.46,
-        offsetX: 87,
-        offsetY: -394.5,
-        offsetZ: 157.5,
-        yaw: -178.7,
-        pitch: -156.4,
-        roll: -48.1,
-        opacity: 0.37,
-      }
-    : {
-        latitude: 108.1,
-        longitude: 65.3,
-        radius: 637,
-        scale: 0.49,
-        offsetX: -148.3,
-        offsetY: -647.4,
-        offsetZ: 377.6,
-        yaw: -47.6,
-        pitch: -21.4,
-        roll: -6.2,
-        opacity: 0.37,
-      };
-
-
-   // 🔁 Remove previous SVG group if exists
-    const oldGroup = scene.getObjectByName("hotspot-group");
-    if (oldGroup) {
-      scene.remove(oldGroup);
-      oldGroup.traverse((child) => {
-        if (child.geometry) child.geometry.dispose();
-        if (child.material) child.material.dispose();
+      // Load SVG (units)
+      const svgData = await new Promise((resolve, reject) => {
+        svgLoader.load(
+          svgPath,
+          (data) => resolve(data),
+          undefined,
+          (err) => reject(err)
+        );
       });
-    }
-    const group = new THREE.Group();
-    group.name = "hotspot-group";
-    scene.add(group);
 
+      // Map paths by id
+      const pathsById = {};
+      svgData.paths.forEach((path) => {
+        const id = path.userData?.node?.id;
+        if (id) pathsById[id] = path;
+      });
 
- const rebuildMeshes = () => {
-  while (group.children.length > 0) group.remove(group.children[0]);
-  clickable.length = 0;
+      const controls = panoramas[0].images?.find(
+        (img) => img.key === viewMode
+      )?.controls;
 
-  // keep coordinates same for mirrored mode — just flip horizontally
-  const phi = THREE.MathUtils.degToRad(90 - controls.latitude);
-  const theta = THREE.MathUtils.degToRad(controls.longitude);
-  const basePosition = new THREE.Vector3(
-    controls.radius * Math.sin(phi) * Math.cos(theta),
-    controls.radius * Math.cos(phi),
-    controls.radius * Math.sin(phi) * Math.sin(theta)
-  );
-
-  basePosition.x += controls.offsetX;
-  basePosition.y += controls.offsetY;
-  basePosition.z += controls.offsetZ;
-
-  const euler = new THREE.Euler(
-    THREE.MathUtils.degToRad(controls.pitch),
-    THREE.MathUtils.degToRad(controls.yaw),
-    THREE.MathUtils.degToRad(controls.roll),
-    "YXZ"
-  );
-  const rotationQuat = new THREE.Quaternion().setFromEuler(euler);
-
-  // --- BUILDING HOTSPOTS ---
-  // --- BUILDING HOTSPOTS ---
-sceneData.buildings.forEach((b) => {
-  const unit = unitsData.find((u) => u.slug === b.svg);
-  if (!unit) return;
-
-  // 🧭 Visibility control based on panoramas and view mode
-  const panoramas = unit.panoramas || [];
-  const showInImage = panoramas.includes("panorama-1");
-  const showInMirrored = panoramas.includes("panorama-2");
-
-  if (
-    (viewMode === "image" && !showInImage) ||
-    (viewMode === "mirrored" && !showInMirrored)
-  ) {
-    return; // Skip this unit if not meant for current view mode
-  }
-
-  let fillColor = "#cccccc";
-  if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_b")
-    fillColor = "#FFEB3B";
-  else if ((unit.status === 1 || unit.status === 2) && unit.building_type.slug === "type_a")
-    fillColor = "#2196F3";
-  else if (unit.status === 3)
-    fillColor = "#F44336";
-
-  const path = pathsById[b.svg];
-  if (!path) return;
-
-  const shapes = SVGLoader.createShapes(path);
-  shapes.forEach((shape) => {
-    const geometry = new THREE.ShapeGeometry(shape);
-    const material = new THREE.MeshBasicMaterial({
-      color: new THREE.Color(fillColor),
-      transparent: true,
-      opacity: controls.opacity,
-      side: THREE.DoubleSide,
-      depthWrite: false,
-    });
-
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.scale.set(controls.scale, -controls.scale, controls.scale);
-    mesh.position.copy(basePosition);
-    mesh.lookAt(0, 0, 0);
-    mesh.quaternion.multiply(rotationQuat);
-
-    // 🪞 Flip horizontally if mirrored
-    if (viewMode === "mirrored") {
-      mesh.scale.x *= -1;
-      mesh.rotation.y += Math.PI;
-    }
-
-    mesh.renderOrder = 10;
-    mesh.userData = {
-      type: "building",
-      buildingSlug: b.svg,
-      nextPanorama: b.nextPanorama,
-    };
-
-    clickable.push(mesh);
-    group.add(mesh);
-  });
-});
-
-
-  // --- AMENITIES (optional mirror if desired) ---
-  if (sceneData.amenities?.length) {
-    const amenityGeometry = new THREE.SphereGeometry(8, 24, 24);
-    const categoryColors = {
-      Restaurants: "#FF9800",
-      Beach: "#00BCD4",
-      Shopping: "#8BC34A",
-      Transport: "#E91E63",
-    };
-
-    const RADIUS = 500;
-    sceneData.amenities.forEach((amenity) => {
-      if (!amenity.location) return;
-      const [latStr, lngStr] = amenity.location.split(",").map((v) => parseFloat(v.trim()));
-      if (isNaN(latStr) || isNaN(lngStr)) return;
-
-      const phiA = THREE.MathUtils.degToRad(90 - latStr);
-      const thetaA = THREE.MathUtils.degToRad(lngStr + 180);
-      let x = RADIUS * Math.sin(phiA) * Math.cos(thetaA);
-      const y = RADIUS * Math.cos(phiA);
-      let z = RADIUS * Math.sin(phiA) * Math.sin(thetaA);
-
-      // 🪞 Flip coordinates for mirrored mode
-      if (viewMode === "mirrored") {
-        x *= -1;
+      const oldGroup = scene.getObjectByName("hotspot-group");
+      if (oldGroup) {
+        scene.remove(oldGroup);
+        oldGroup.traverse((child) => {
+          if (child.geometry) child.geometry.dispose();
+          if (child.material) child.material.dispose();
+        });
       }
+      const group = new THREE.Group();
+      group.name = "hotspot-group";
+      scene.add(group);
 
-      const mesh = new THREE.Mesh(
-        amenityGeometry,
-        new THREE.MeshBasicMaterial({
-          color: categoryColors[amenity.category] || "#FFFFFF",
-          transparent: true,
-          opacity: 0.85,
-          side: THREE.DoubleSide,
-          depthWrite: false,
-        })
-      );
-      mesh.position.set(x, y, z);
-      mesh.lookAt(0, 0, 0);
-      mesh.renderOrder = 15;
-      mesh.userData = {
-        type: "amenity",
-        name: amenity.name,
-        category: amenity.category,
-        nextPanorama: amenity.id,
+      const rebuildMeshes = () => {
+        while (group.children.length > 0) group.remove(group.children[0]);
+        clickable.length = 0;
+
+        // keep coordinates same for mirrored mode — just flip horizontally
+        const phi = THREE.MathUtils.degToRad(90 - controls.latitude);
+        const theta = THREE.MathUtils.degToRad(controls.longitude);
+        const basePosition = new THREE.Vector3(
+          controls.radius * Math.sin(phi) * Math.cos(theta),
+          controls.radius * Math.cos(phi),
+          controls.radius * Math.sin(phi) * Math.sin(theta)
+        );
+
+        basePosition.x += controls.offsetX;
+        basePosition.y += controls.offsetY;
+        basePosition.z += controls.offsetZ;
+
+        const euler = new THREE.Euler(
+          THREE.MathUtils.degToRad(controls.pitch),
+          THREE.MathUtils.degToRad(controls.yaw),
+          THREE.MathUtils.degToRad(controls.roll),
+          "YXZ"
+        );
+        const rotationQuat = new THREE.Quaternion().setFromEuler(euler);
+
+        sceneData.buildings.forEach((b) => {
+          const unit = unitsData.find((u) => u.slug === b.svg);
+
+          if (!unit) return;
+          // if (!unit.panoramas || !unit.panoramas.includes(viewMode)) return;
+          let fillColor = "#cccccc";
+          if (
+            (unit.status === 1 || unit.status === 2) &&
+            unit.building_type.slug === "type_b"
+          )
+            fillColor = "#FFEB3B";
+          else if (
+            (unit.status === 1 || unit.status === 2) &&
+            unit.building_type.slug === "type_a"
+          )
+            fillColor = "#2196F3";
+          else if (unit.status === 3) fillColor = "#F44336";
+
+          const path = pathsById[b.svg];
+          if (!path) return;
+
+          const shapes = SVGLoader.createShapes(path);
+          shapes.forEach((shape) => {
+            const geometry = new THREE.ShapeGeometry(shape);
+            const material = new THREE.MeshBasicMaterial({
+              color: new THREE.Color(fillColor),
+              transparent: true,
+              opacity: controls.opacity,
+              side: THREE.DoubleSide,
+              depthWrite: false,
+            });
+
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.scale.set(controls.scale, -controls.scale, controls.scale);
+            mesh.position.copy(basePosition);
+            mesh.lookAt(0, 0, 0);
+            mesh.quaternion.multiply(rotationQuat);
+
+            mesh.renderOrder = 10;
+            mesh.userData = {
+              type: "building",
+              buildingSlug: b.svg,
+              nextPanorama: b.nextPanorama,
+            };
+
+            clickable.push(mesh);
+            group.add(mesh);
+          });
+        });
+
+        if (sceneData.amenities?.length) {
+          const amenityGeometry = new THREE.SphereGeometry(8, 24, 24);
+          const categoryColors = {
+            Restaurants: "#FF9800",
+            Beach: "#00BCD4",
+            Shopping: "#8BC34A",
+            Transport: "#E91E63",
+          };
+
+          const RADIUS = 500;
+          sceneData.amenities.forEach((amenity) => {
+            if (!amenity.location) return;
+            const [latStr, lngStr] = amenity.location
+              .split(",")
+              .map((v) => parseFloat(v.trim()));
+            if (isNaN(latStr) || isNaN(lngStr)) return;
+
+            const phiA = THREE.MathUtils.degToRad(90 - latStr);
+            const thetaA = THREE.MathUtils.degToRad(lngStr + 180);
+            let x = RADIUS * Math.sin(phiA) * Math.cos(thetaA);
+            const y = RADIUS * Math.cos(phiA);
+            let z = RADIUS * Math.sin(phiA) * Math.sin(thetaA);
+
+            const mesh = new THREE.Mesh(
+              amenityGeometry,
+              new THREE.MeshBasicMaterial({
+                color: categoryColors[amenity.category] || "#FFFFFF",
+                transparent: true,
+                opacity: 0.85,
+                side: THREE.DoubleSide,
+                depthWrite: false,
+              })
+            );
+            mesh.position.set(x, y, z);
+            mesh.lookAt(0, 0, 0);
+            mesh.renderOrder = 15;
+            mesh.userData = {
+              type: "amenity",
+              name: amenity.name,
+              category: amenity.category,
+              nextPanorama: amenity.id,
+            };
+            clickable.push(mesh);
+            group.add(mesh);
+          });
+        }
       };
-      clickable.push(mesh);
-      group.add(mesh);
-    });
-  }
-};
-//  if (window._mirroredGui) {
-//     window._mirroredGui.destroy();
-//     window._mirroredGui = null;
-//   }
+      // if (window._mirroredGui) {
+      //   window._mirroredGui.destroy();
+      //   window._mirroredGui = null;
+      // }
 
-//   if (viewMode === "mirrored") {
-//     const gui = new GUI({ width: 320 });
-//     window._mirroredGui = gui;
+      // if (viewMode === "panorama-2") {
+      //   const gui = new GUI({ width: 320 });
+      //   window._mirroredGui = gui;
 
-//     const folder = gui.addFolder("Mirrored SVG Alignment");
-//     folder.add(controls, "latitude", 0, 180, 0.1).onChange(rebuildMeshes);
-//     folder.add(controls, "longitude", 0, 360, 0.1).onChange(rebuildMeshes);
-//     folder.add(controls, "radius", 100, 1000, 1).onChange(rebuildMeshes);
-//     folder.add(controls, "scale", 0.1, 2, 0.01).onChange(rebuildMeshes);
+      //   const folder = gui.addFolder("Mirrored SVG Alignment");
+      //   folder.add(controls, "latitude", 0, 180, 0.1).onChange(rebuildMeshes);
+      //   folder.add(controls, "longitude", 0, 360, 0.1).onChange(rebuildMeshes);
+      //   folder.add(controls, "radius", 100, 1000, 1).onChange(rebuildMeshes);
+      //   folder.add(controls, "scale", 0.1, 2, 0.01).onChange(rebuildMeshes);
 
-//     const offsetFolder = folder.addFolder("Offset");
-//     offsetFolder
-//       .add(controls, "offsetX", -1000, 1000, 0.5)
-//       .onChange(rebuildMeshes);
-//     offsetFolder
-//       .add(controls, "offsetY", -1000, 1000, 0.5)
-//       .onChange(rebuildMeshes);
-//     offsetFolder
-//       .add(controls, "offsetZ", -1000, 1000, 0.5)
-//       .onChange(rebuildMeshes);
+      //   const offsetFolder = folder.addFolder("Offset");
+      //   offsetFolder
+      //     .add(controls, "offsetX", -1000, 1000, 0.5)
+      //     .onChange(rebuildMeshes);
+      //   offsetFolder
+      //     .add(controls, "offsetY", -1000, 1000, 0.5)
+      //     .onChange(rebuildMeshes);
+      //   offsetFolder
+      //     .add(controls, "offsetZ", -1000, 1000, 0.5)
+      //     .onChange(rebuildMeshes);
 
-//     const rotationFolder = folder.addFolder("Rotation");
-//     rotationFolder.add(controls, "yaw", -200, 200, 0.1).onChange(rebuildMeshes);
-//     rotationFolder
-//       .add(controls, "pitch", -180, 180, 0.1)
-//       .onChange(rebuildMeshes);
-//     rotationFolder.add(controls, "roll", -180, 180, 0.1).onChange(rebuildMeshes);
+      //   const rotationFolder = folder.addFolder("Rotation");
+      //   rotationFolder
+      //     .add(controls, "yaw", -200, 200, 0.1)
+      //     .onChange(rebuildMeshes);
+      //   rotationFolder
+      //     .add(controls, "pitch", -180, 180, 0.1)
+      //     .onChange(rebuildMeshes);
+      //   rotationFolder
+      //     .add(controls, "roll", -180, 180, 0.1)
+      //     .onChange(rebuildMeshes);
 
-//     folder.add(controls, "opacity", 0, 1, 0.01).onChange(rebuildMeshes);
-//     folder.open();
-//   }
+      //   folder.add(controls, "opacity", 0, 1, 0.01).onChange(rebuildMeshes);
+      //   folder.open();
+      // }
 
-    rebuildMeshes();
- }, [viewMode]);
+      rebuildMeshes();
+    },
+    [viewMode]
+  );
 
   // switchPanorama now respects viewMode for selecting mirrored image
-  const switchPanorama = async (nextScene, currentSlug, isBack = false, isUnitScene = false) => {
+  const switchPanorama = async (
+    nextScene,
+    currentSlug,
+    isBack = false,
+    isUnitScene = false
+  ) => {
     if (!nextScene || isTransitioningRef.current) return;
     isTransitioningRef.current = true;
 
@@ -378,9 +360,12 @@ sceneData.buildings.forEach((b) => {
       controlsRef.current.update();
     }
 
-    // decide image based on viewMode (use imageMirrored if available)
-    const imgUrl =
-      viewMode === "mirrored" && nextScene.imageMirrored ? nextScene.imageMirrored : nextScene.image;
+    const imgUrl = getImageUrl(nextScene, viewMode);
+
+    if (!imgUrl) {
+      console.warn("No valid image found for", nextScene.id);
+      return;
+    }
 
     const nextTexture = await loadTexture(imgUrl).catch(() => null);
     if (!nextTexture) {
@@ -390,7 +375,9 @@ sceneData.buildings.forEach((b) => {
     }
 
     const nextMesh = usingMesh1 ? panoMesh2Ref.current : panoMesh1Ref.current;
-    const currentMesh = usingMesh1 ? panoMesh1Ref.current : panoMesh2Ref.current;
+    const currentMesh = usingMesh1
+      ? panoMesh1Ref.current
+      : panoMesh2Ref.current;
 
     nextMesh.material.map = nextTexture;
     nextMesh.material.opacity = 0;
@@ -406,66 +393,70 @@ sceneData.buildings.forEach((b) => {
     });
     clickable.length = 0;
 
-    const currentUnit = currentSlug ? buildingData.find((b) => b.slug === currentSlug) : null;
+    const currentUnit = currentSlug
+      ? buildingData.find((b) => b.slug === currentSlug)
+      : null;
 
     // unit hotspots for unit panoramas (unchanged)
     if (!isUnitScene && currentUnit && currentUnit.panoramas?.length) {
-  currentUnit.panoramas.forEach((panoramaId) => {
-    // find matching panorama data from master panoramas list
-    const panoramaData = panoramas.find((p) => p.id === panoramaId);
-    if (!panoramaData || !panoramaData.hotspots) return;
+      currentUnit.panoramas.forEach((panoramaId) => {
+        // find matching panorama data from master panoramas list
+        const panoramaData = panoramas.find((p) => p.id === panoramaId);
+        if (!panoramaData || !panoramaData.hotspots) return;
 
-    panoramaData.hotspots.forEach((b) => {
-      loader.load(
-        "/assets/svg/oval.svg",
-        (svgTexture) => {
-          svgTexture.colorSpace = THREE.SRGBColorSpace;
-          const mat = new THREE.MeshBasicMaterial({
-            map: svgTexture,
-            transparent: true,
-            opacity: 1,
-            side: THREE.DoubleSide,
-            depthWrite: false,
-          });
+        panoramaData.hotspots.forEach((b) => {
+          loader.load(
+            "/assets/svg/oval.svg",
+            (svgTexture) => {
+              svgTexture.colorSpace = THREE.SRGBColorSpace;
+              const mat = new THREE.MeshBasicMaterial({
+                map: svgTexture,
+                transparent: true,
+                opacity: 1,
+                side: THREE.DoubleSide,
+                depthWrite: false,
+              });
 
-          const plane = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), mat);
-          const phi = THREE.MathUtils.degToRad(90 - b.latitude);
-          const theta = THREE.MathUtils.degToRad(b.longitude);
-          plane.position.set(
-            65 * Math.sin(phi) * Math.cos(theta),
-            65 * Math.cos(phi),
-            65 * Math.sin(phi) * Math.sin(theta)
+              const plane = new THREE.Mesh(
+                new THREE.PlaneGeometry(50, 50),
+                mat
+              );
+              const phi = THREE.MathUtils.degToRad(90 - b.latitude);
+              const theta = THREE.MathUtils.degToRad(b.longitude);
+              plane.position.set(
+                65 * Math.sin(phi) * Math.cos(theta),
+                65 * Math.cos(phi),
+                65 * Math.sin(phi) * Math.sin(theta)
+              );
+
+              plane.lookAt(0, 0, 0);
+              plane.rotation.z = THREE.MathUtils.degToRad(118.6);
+
+              const aspect =
+                plane.material.map.image?.width /
+                  plane.material.map.image?.height || 1;
+              plane.geometry.dispose();
+              plane.geometry = new THREE.PlaneGeometry(
+                40 * aspect * 0.35,
+                40 * 0.35
+              );
+
+              plane.userData = {
+                type: "unitHotspot",
+                nextPanorama: b.image,
+                buildingSlug: currentSlug,
+              };
+
+              plane.renderOrder = 1;
+              scene.add(plane);
+              clickable.push(plane);
+            },
+            undefined,
+            (err) => console.error("Error loading SVG:", err)
           );
-
-          plane.lookAt(0, 0, 0);
-          plane.rotation.z = THREE.MathUtils.degToRad(118.6);
-
-          const aspect =
-            plane.material.map.image?.width /
-              plane.material.map.image?.height || 1;
-          plane.geometry.dispose();
-          plane.geometry = new THREE.PlaneGeometry(
-            40 * aspect * 0.35,
-            40 * 0.35
-          );
-
-          plane.userData = {
-            type: "unitHotspot",
-            nextPanorama: b.image,
-            buildingSlug: currentSlug,
-          };
-
-          plane.renderOrder = 1;
-          scene.add(plane);
-          clickable.push(plane);
-        },
-        undefined,
-        (err) => console.error("Error loading SVG:", err)
-      );
-    });
-  });
-}
-
+        });
+      });
+    }
 
     // back hotspot when appropriate
     if (previousSceneRef.current && isUnitScene && isBack === false) {
@@ -493,9 +484,14 @@ sceneData.buildings.forEach((b) => {
           plane.lookAt(0, 0, 0);
           plane.rotation.z = THREE.MathUtils.degToRad(0);
 
-          const aspect = plane.material.map.image?.width / plane.material.map.image?.height || 1;
+          const aspect =
+            plane.material.map.image?.width /
+              plane.material.map.image?.height || 1;
           plane.geometry.dispose();
-          plane.geometry = new THREE.PlaneGeometry(40 * aspect * 0.35, 40 * 0.35);
+          plane.geometry = new THREE.PlaneGeometry(
+            40 * aspect * 0.35,
+            40 * 0.35
+          );
 
           plane.userData = {
             type: "backHotspot",
@@ -533,13 +529,12 @@ sceneData.buildings.forEach((b) => {
                     side: THREE.DoubleSide,
                     depthWrite: false,
                   });
-                  const plane = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), mat);
+                  const plane = new THREE.Mesh(
+                    new THREE.PlaneGeometry(50, 50),
+                    mat
+                  );
                   const phi = THREE.MathUtils.degToRad(90 - (b.latitude || 0));
-                  // Mirror longitude for image-based hotspots if viewMode === 'mirrored'
                   let longitudeForHotspot = b.longitude || 0;
-                  if (viewMode === "mirrored") {
-                    longitudeForHotspot = -longitudeForHotspot;
-                  }
                   const theta = THREE.MathUtils.degToRad(longitudeForHotspot);
                   plane.position.set(
                     (b.radius || 65) * Math.sin(phi) * Math.cos(theta),
@@ -550,9 +545,13 @@ sceneData.buildings.forEach((b) => {
                   plane.rotation.z = THREE.MathUtils.degToRad(b.rotation || 0);
 
                   const aspect =
-                    plane.material.map?.image?.width / plane.material.map?.image?.height || 1;
+                    plane.material.map?.image?.width /
+                      plane.material.map?.image?.height || 1;
                   plane.geometry.dispose();
-                  plane.geometry = new THREE.PlaneGeometry((b.size || 50) * aspect, b.size || 50);
+                  plane.geometry = new THREE.PlaneGeometry(
+                    (b.size || 50) * aspect,
+                    b.size || 50
+                  );
 
                   plane.userData = {
                     type: "building",
@@ -560,12 +559,6 @@ sceneData.buildings.forEach((b) => {
                     nextPanorama: b.nextPanorama,
                   };
                   plane.renderOrder = 1;
-
-                  // If using mirrored view mode, flip horizontally
-                  if (viewMode === "mirrored") {
-                    plane.scale.x *= -1;
-                  }
-
                   newHotspots.push(plane);
                   resolve();
                 },
@@ -623,7 +616,7 @@ sceneData.buildings.forEach((b) => {
   };
 
   useEffect(() => {
-    if (!isReady) return;
+    if (!isReady || !buildingData.length) return;
     const container = containerRef.current;
     if (!container) return;
 
@@ -643,7 +636,7 @@ sceneData.buildings.forEach((b) => {
     const geometry = new THREE.SphereGeometry(500, 60, 40);
     geometry.scale(-1, 1, 1);
 
-    const initialTexture = textureCache.current[currentScene.image];
+    const initialTexture = textureCache.current[currentScene.images[0].image];
     const panoMesh1 = new THREE.Mesh(
       geometry,
       new THREE.MeshBasicMaterial({
@@ -681,7 +674,6 @@ sceneData.buildings.forEach((b) => {
     rendererRef.current = renderer;
     controlsRef.current = controls;
 
-    // initial build
     buildHotspots(currentScene, buildingData);
 
     const raycaster = new THREE.Raycaster();
@@ -755,7 +747,8 @@ sceneData.buildings.forEach((b) => {
       if (!intersects.length) return;
 
       const clicked = intersects[0].object;
-      const { type, nextPanorama, buildingSlug, isBack } = clicked.userData || {};
+      const { type, nextPanorama, buildingSlug, isBack } =
+        clicked.userData || {};
 
       if (type === "backHotspot" && isBack && nextPanorama) {
         const previousScene =
@@ -770,7 +763,9 @@ sceneData.buildings.forEach((b) => {
       }
 
       if (type === "building" && nextPanorama) {
-        const next = panoramas.find((p) => p.id === nextPanorama || p.image === nextPanorama);
+        const next = panoramas.find(
+          (p) => p.id === nextPanorama || p.image === nextPanorama
+        );
         if (next) {
           setHistory((h) => [...h, JSON.parse(JSON.stringify(currentScene))]);
           switchPanorama(next, buildingSlug || null);
@@ -779,7 +774,9 @@ sceneData.buildings.forEach((b) => {
       }
 
       if (type === "unitHotspot" && nextPanorama) {
-        const next = panoramas.find((p) => p.id === nextPanorama || p.image === nextPanorama);
+        const next = panoramas.find(
+          (p) => p.id === nextPanorama || p.image === nextPanorama
+        );
         if (next) {
           setHistory((h) => [...h, JSON.parse(JSON.stringify(currentScene))]);
           switchPanorama(next, buildingSlug, false, true);
@@ -832,7 +829,7 @@ sceneData.buildings.forEach((b) => {
         container.removeChild(canvas);
       } catch (e) {}
     };
-  }, [isReady]); // we only re-create the scene when ready
+  }, [isReady, buildingData]);
 
   const goBack = async () => {
     if (history.length === 0) return;
@@ -841,23 +838,18 @@ sceneData.buildings.forEach((b) => {
     await switchPanorama(prev, prev.slug || null);
     await buildHotspots(prev, buildingData);
   };
-useEffect(() => {
-  if (!isReady) return;
+  useEffect(() => {
+    if (!isReady) return;
 
-  // Step 1: switch to mirrored (or normal) panorama
-  const updatePanoramaAndHotspots = async () => {
-    await switchPanorama(currentScene, null); // ensures texture transition completes
-    // Step 2: rebuild SVG overlays after fade-in
-    await buildHotspots(currentScene, buildingData);
-  };
+    const updatePanoramaAndHotspots = async () => {
+      await switchPanorama(panoramas[0], null);
 
-  // Small delay to let the fade animation in switchPanorama settle
-  setTimeout(() => {
-    updatePanoramaAndHotspots();
-  }, 400); // 400–600ms is usually good for your 0.02 fade speed
-
-}, [viewMode]);
-
+      await buildHotspots(panoramas[0], buildingData);
+    };
+    setTimeout(() => {
+      updatePanoramaAndHotspots();
+    }, 400);
+  }, [viewMode]);
 
   if (!isReady) {
     return (
@@ -869,16 +861,23 @@ useEffect(() => {
 
   return (
     <div className="relative w-full h-full">
-      <div ref={containerRef} className="w-full h-full" style={{ background: "black" }} />
+      <div
+        ref={containerRef}
+        className="w-full h-full"
+        style={{ background: "black" }}
+      />
 
       <div className="absolute top-4 right-4 z-20 p-2 bg-black rounded">
         <select
-          value={viewMode}
           onChange={(e) => setViewMode(e.target.value)}
+          defaultValue={viewMode}
           className="bg-black text-white p-1 rounded"
         >
-          <option value="image">Image</option>
-          <option value="mirrored">Mirrored Image</option>
+          {panoramas[0].images.map((img) => (
+            <option key={img.key} value={img.key}>
+              {img.key}
+            </option>
+          ))}
         </select>
       </div>
 
