@@ -17,6 +17,7 @@ export function usePanoramaSwitcher({
   isTransitioningRef,
   autorotateTimeoutRef,
   setUsingMesh1,
+  usingMesh1,
   setCurrentScene,
   loadTexture,
   getImageUrl,
@@ -44,22 +45,17 @@ export function usePanoramaSwitcher({
       }
 
       const imgUrl = getImageUrl(nextScene, viewMode);
-      if (!imgUrl) {
-        console.warn("No image found for", nextScene.id);
-        return;
-      }
 
       const nextTexture = await loadTexture(imgUrl).catch(() => null);
+      console.log("Loaded texture for", imgUrl, nextTexture);
       if (!nextTexture) {
         if (controlsRef.current) controlsRef.current.enabled = true;
         isTransitioningRef.current = false;
         return;
       }
 
-      const nextMesh =
-        setUsingMesh1 ? panoMesh2Ref.current : panoMesh1Ref.current;
-      const currentMesh =
-        setUsingMesh1 ? panoMesh1Ref.current : panoMesh2Ref.current;
+      const nextMesh =usingMesh1 ? panoMesh2Ref.current : panoMesh1Ref.current;
+      const currentMesh =usingMesh1 ? panoMesh1Ref.current : panoMesh2Ref.current;
 
       nextMesh.material.map = nextTexture;
       nextMesh.material.transparent = true;
@@ -77,9 +73,6 @@ export function usePanoramaSwitcher({
         ? buildingData.find((b) => b.slug === currentSlug)
         : null;
 
-      //
-      // *** Unit hotspots ***
-      //
       if (!isUnitScene && currentUnit && currentUnit.panoramas?.length) {
         currentUnit.panoramas.forEach((panoramaId) => {
           const panoramaData = panoramas.find((p) => p.id === panoramaId);
@@ -144,9 +137,6 @@ export function usePanoramaSwitcher({
         });
       }
 
-      //
-      // *** Back hotspot ***
-      //
       if (previousSceneRef.current && isUnitScene && !isBack) {
         loader.load(
           "/assets/svg/oval.svg",
@@ -203,9 +193,6 @@ export function usePanoramaSwitcher({
         );
       }
 
-      //
-      // *** Building hotspots ***
-      //
       const newHotspots = [];
 
       if (nextScene.buildings?.length) {
@@ -284,9 +271,6 @@ export function usePanoramaSwitcher({
         );
       }
 
-      //
-      // *** Fade animation ***
-      //
       let opacity = 0;
       const speed = 0.02;
 

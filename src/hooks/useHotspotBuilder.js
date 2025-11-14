@@ -1,4 +1,3 @@
-
 import { useCallback } from "react";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
@@ -79,16 +78,9 @@ export function useHotspotBuilder({
           if (!unit.panoramas?.includes(viewMode)) return;
 
           let fillColor = "#cccccc";
-          if (
-            (unit.status === 1 || unit.status === 2) &&
-            unit.building_type.slug === "type_b"
-          )
-            fillColor = "#FFEB3B";
-          else if (
-            (unit.status === 1 || unit.status === 2) &&
-            unit.building_type.slug === "type_a"
-          )
-            fillColor = "#2196F3";
+
+          if ((unit.status === 1 || unit.status === 2) &&unit.building_type.slug === "type_b")fillColor = "#FFEB3B";
+          else if ( (unit.status === 1 || unit.status === 2) &&unit.building_type.slug === "type_a")fillColor = "#2196F3";     
           else if (unit.status === 3) fillColor = "#F44336";
 
           const path = pathsById[b.svg];
