@@ -47,7 +47,6 @@ export function usePanoramaSwitcher({
       const imgUrl = getImageUrl(nextScene, viewMode);
 
       const nextTexture = await loadTexture(imgUrl).catch(() => null);
-      console.log("Loaded texture for", imgUrl, nextTexture);
       if (!nextTexture) {
         if (controlsRef.current) controlsRef.current.enabled = true;
         isTransitioningRef.current = false;
