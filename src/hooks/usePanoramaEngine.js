@@ -209,18 +209,23 @@ export function usePanoramaEngine({
         return;
       }
 
-      if (type === "unitHotspot" && nextPanorama) {
-        const next = panoramas.find(
-          (p) => p.id === nextPanorama || p.image === nextPanorama
-        );
-        if (next) {
-          setHistory((h) => [
-            ...h,
-            JSON.parse(JSON.stringify(currentScene))
-          ]);
-          switchPanorama(next, buildingSlug, false, true);
-        }
-        return;
+      // if (type === "unitHotspot" && nextPanorama) {
+      //   const next = panoramas.find(
+      //     (p) => p.id === nextPanorama || p.image === nextPanorama
+      //   );
+      //   if (next) {
+      //     setHistory((h) => [
+      //       ...h,
+      //       JSON.parse(JSON.stringify(currentScene))
+      //     ]);
+      //     switchPanorama(next, buildingSlug, false, true);
+      //   }
+      //   return;
+      // }
+      if( type === "unitHotspot") {
+       const url= clicked.userData.url||'https://wizio.co.uk';
+       window.open(url,'_blank');
+       return;
       }
 
       if (type === "amenity") {
